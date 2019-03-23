@@ -1,10 +1,24 @@
+// Commons
 import { Module } from '@nestjs/common';
+
+// Controllers
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
+// Modules
 import { AuthModule } from './auth/auth.module';
+import { UserModule } from './bd/user/user.module';
+
+// Services
+import { AppService } from './app.service';
+
+// Config
+import { MONGO_URI } from './config/config';
 
 @Module({
-  imports: [AuthModule],
+  imports: [
+    AuthModule,
+    UserModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
